@@ -1,10 +1,17 @@
 <!doctype html>
 <script src="code/game.js"></script>
 <script src="code/game_levels.js"></script>
-
 <link rel="stylesheet" href="css/game.css">
+<style>
+body {
+    font-family: Helvetica, arial, sans-serif;
+    color: rgb(12, 12, 12);
+    background-color: rgb(255, 255, 255);
+}
+</style>
 
 <body>
+  <p>Lives</p><p id="life"></p>
   <script>
     runGame(GAME_LEVELS, DOMDisplay);
   </script>
