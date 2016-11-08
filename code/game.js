@@ -3,6 +3,7 @@ var actorChars = {
   "@": Player,
   "o": Coin, // A coin will wobble up and down
   "s": Spring,
+  "e": Enemy,
   "=": Lava, "|": Lava, "v": Lava
 };
 var lives = 3;
@@ -122,6 +123,12 @@ function Lava(pos, ch) {
   }
 }
 Lava.prototype.type = "lava";
+
+function Enemy(pos) {
+  this.basePos = this.pos = pos.plus(new Vector(0,0));
+  this.size = new Vector(1,1);
+}
+Enemy.prototype.type = "enemy"
 
 
 // Helper function to easily create an element of a type provided
@@ -299,6 +306,8 @@ Lava.prototype.act = function(step, level) {
     this.speed = this.speed.times(-1);
 };
 
+Enemy.prototype.act = function(step) {
+};
 
 var maxStep = 0.05;
 var wobbleSpeed = 8, wobbleDist = 0.07;
@@ -403,6 +412,10 @@ Level.prototype.playerTouched = function(type, actor) {
     lives += 1;
   } else if (type == "spring") {
     gravity = 20;
+  } else if (type == "enemy") {
+    var port = new Vector(-2, 0);
+    var newPos = this.player.pos.plus(port);
+    this.player.pos = newPos; 
   }
 };
 

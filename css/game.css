@@ -4,7 +4,8 @@
 .background td { padding: 0;          }
 .lava          { background: rgb(255, 0, 0); }
 .spring        { background: rgb(51, 51, 255); }
-.wall          { background: black;   }
+.wall          { background: black; }
+.enemy	   	   { background: rgb(255, 140, 0); }
 
 .actor  { position: absolute; }
 .coin   { background: rgb(241, 229, 89); }
